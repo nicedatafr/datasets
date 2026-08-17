@@ -6,7 +6,7 @@ Public datasets maintained by [Nice Data](https://github.com/nicedatafr) for dat
 
 | Dataset | Description | Available models | Current schema |
 | --- | --- | --- | --- |
-| [Retro Video Games](retro-video-games/) | Video games and their platforms, provided in compact editions for tutorials and quick tests. | Relational, OBT | `v1` |
+| [Retro Video Games](retro-video-games/) | Video games and their platforms, provided in small and large editions for tutorials, tests, and realistic examples. | Relational, OBT | `v1` |
 
 ## Repository structure
 

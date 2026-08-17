@@ -1,6 +1,6 @@
 # Retro Video Games Dataset
 
-A compact video game dataset designed for data engineering, analytics, and business intelligence tutorials.
+A video game dataset designed for data engineering, analytics, and business intelligence tutorials, available in small and large editions.
 
 ## Available data
 
@@ -8,20 +8,31 @@ A compact video game dataset designed for data engineering, analytics, and busin
 | --- | --- | --- | --- | --- |
 | `v1` | `small` | `relational` | `csv` | 20 games across 3 platforms |
 | `v1` | `small` | `obt` | `csv` | 20 denormalized game and platform records |
+| `v1` | `large` | `relational` | `csv` | 340 games across 3 platforms |
+| `v1` | `large` | `obt` | `csv` | 340 denormalized game and platform records |
 
-The `small` edition is intentionally limited so it remains easy to understand and fast to use in examples and automated tests. It is not intended to be exhaustive.
+The `small` edition is intentionally limited so it remains easy to understand and fast to use in examples and automated tests. The `large` edition contains every row from `small` unchanged, followed by additional records for realistic ingestion and transformation exercises. Neither edition is intended to be exhaustive.
 
 ## Files
 
 ```text
-data/v1/small/
-├── relational/
-│   └── csv/
-│       ├── games.csv
-│       └── platforms.csv
-└── obt/
-    └── csv/
-        └── games.csv
+data/v1/
+├── small/
+│   ├── relational/
+│   │   └── csv/
+│   │       ├── games.csv
+│   │       └── platforms.csv
+│   └── obt/
+│       └── csv/
+│           └── games.csv
+└── large/
+    ├── relational/
+    │   └── csv/
+    │       ├── games.csv
+    │       └── platforms.csv
+    └── obt/
+        └── csv/
+            └── games.csv
 ```
 
 ## Relational model
@@ -59,9 +70,9 @@ games.platform_official_name = platforms.official_name
 
 ## One Big Table model
 
-The OBT edition denormalizes each game and its platform into a single row. It contains the same 20 games as the relational edition and requires no join.
+The OBT edition denormalizes each game and its platform into a single row and requires no join. For each size, it contains the same game records as the corresponding relational edition. The `large` files contain all 20 records from `small` unchanged, plus additional records.
 
-Path: `data/v1/small/obt/csv/games.csv`
+Paths: `data/v1/<size>/obt/csv/games.csv`, where `<size>` is `small` or `large`.
 
 | Column | Description | Example |
 | --- | --- | --- |
@@ -80,9 +91,12 @@ The `game_` and `platform_` prefixes make similarly named attributes unambiguous
 
 The CSV files can be downloaded directly from the `main` branch:
 
-- [games.csv](https://raw.githubusercontent.com/nicedatafr/datasets/main/retro-video-games/data/v1/small/relational/csv/games.csv)
-- [platforms.csv](https://raw.githubusercontent.com/nicedatafr/datasets/main/retro-video-games/data/v1/small/relational/csv/platforms.csv)
-- [games.csv (OBT)](https://raw.githubusercontent.com/nicedatafr/datasets/main/retro-video-games/data/v1/small/obt/csv/games.csv)
+- [Small relational games](https://raw.githubusercontent.com/nicedatafr/datasets/main/retro-video-games/data/v1/small/relational/csv/games.csv)
+- [Small relational platforms](https://raw.githubusercontent.com/nicedatafr/datasets/main/retro-video-games/data/v1/small/relational/csv/platforms.csv)
+- [Small OBT games](https://raw.githubusercontent.com/nicedatafr/datasets/main/retro-video-games/data/v1/small/obt/csv/games.csv)
+- [Large relational games](https://raw.githubusercontent.com/nicedatafr/datasets/main/retro-video-games/data/v1/large/relational/csv/games.csv)
+- [Large relational platforms](https://raw.githubusercontent.com/nicedatafr/datasets/main/retro-video-games/data/v1/large/relational/csv/platforms.csv)
+- [Large OBT games](https://raw.githubusercontent.com/nicedatafr/datasets/main/retro-video-games/data/v1/large/obt/csv/games.csv)
 
 For reproducible tutorials, prefer a URL pinned to a Git tag once a release is available.
 
